@@ -9,3 +9,7 @@ variable "AMIS" {
     us-east-1 = "ami-01f18be4e32df20e2"
   }
 }
+
+variable "PUBLIC_KEY" {
+  type = string
+}
