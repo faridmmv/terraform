@@ -1,4 +1,5 @@
-resource "aws_key_pair" "tfpair" {
-  key_name   = "tf"
-  public_key = var.PUBLIC_KEY
+resource "aws_key_pair" "mykeypair" {
+  key_name   = "mykeypair"
+  public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
+

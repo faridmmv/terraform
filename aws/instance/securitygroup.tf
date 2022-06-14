@@ -1,15 +1,7 @@
-resource "aws_security_group" "sg_ssh" {
-  name        = "allow ssh"
+resource "aws_security_group" "allow-ssh" {
   vpc_id      = aws_vpc.main.id
-  description = "Allow ssh connection"
-  ingress {
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "Allow SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    #    cidr_blocks = aws_subnet.sub1.cidr_block
-  }
+  name        = "allow-ssh"
+  description = "security group that allows ssh and all egress traffic"
   egress {
     from_port   = 0
     to_port     = 0
@@ -17,4 +9,14 @@ resource "aws_security_group" "sg_ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name = "allow-ssh"
+  }
 }
+
