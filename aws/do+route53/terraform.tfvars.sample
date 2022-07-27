@@ -1,0 +1,6 @@
+gitlab_deploy_key = ""
+gitlab_token      = ""
+do_token          = ""
+PUBLIC_KEY        = ""
+
+do_email_tag      = ""

@@ -4,7 +4,7 @@ data "digitalocean_ssh_key" "rebrain" {
 
 resource "digitalocean_ssh_key" "mypc" {
   name       = "mypckey"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = var.PUBLIC_KEY
 }
 
 resource "digitalocean_tag" "devops" {
@@ -12,7 +12,7 @@ resource "digitalocean_tag" "devops" {
 }
 
 resource "digitalocean_tag" "email" {
-  name = "faridmmv_at_gmail_com"
+  name = var.do_email_tag
 }
 
 resource "digitalocean_droplet" "web" {
